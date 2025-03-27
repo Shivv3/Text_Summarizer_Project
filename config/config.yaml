@@ -1,0 +1,18 @@
+#Defining the artifacts folder: It will create a folder called artifacts and all the generation of the components of the project will get saved into artifacts.
+artifacts_root : artifacts
+
+#Preparing the data_ingestion config folder:
+data_ingestion:
+
+  #Defining the root directory where everything will be created:
+  root_dir: artifacts/data_ingestion
+  
+  #Defining the source url from where the data will be extracted:
+  source_URL: https://github.com/Shivv3/Text_Summarizer_Project/raw/refs/heads/main/summarizer-data.zip
+
+  #Defining the type of the file stored in the local folder:
+  local_data_file: artifacts/data_ingestion/data.zip
+
+  #Defining the directory where unzipping will be done:
+  unzip_dir: artifacts/data_ingestion
+

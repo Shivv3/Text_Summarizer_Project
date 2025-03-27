@@ -61,6 +61,7 @@ def create_directories(path_to_directories: list, verbose=True):
         if verbose:
             logger.info(f"created directory at: {path}")
 
+
 #A method to get the size of a file stored at the path:
 @ensure_annotations
 def get_size(path: Path) -> str:
