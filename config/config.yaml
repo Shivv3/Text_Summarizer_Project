@@ -16,3 +16,17 @@ data_ingestion:
   #Defining the directory where unzipping will be done:
   unzip_dir: artifacts/data_ingestion
 
+
+#Preparing the data_validation config folder: If all the required files are present then it will return STATUS_FILE as true:
+data_validation:
+  #Defining the root directory where everything will be created:
+  root_dir: artifacts/data_validation
+
+  #Defining the STATUS_FILE:
+  STATUS_FILE: artifacts/data_validation/status.txt
+
+  #Defining the required files:
+  ALL_REQUIRED_FILES: ["train","test","validation"]
+
+ 
+
