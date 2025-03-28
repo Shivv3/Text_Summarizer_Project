@@ -3,7 +3,7 @@ from src.textSummarizer.constants import *
 
 # Import necessary file from commonly used functions:
 from src.textSummarizer.utils.common import read_yaml, create_directories
-from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig)
+from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig,DataTransformationConfig)
 
 #Creating a class of configuration Manager:
 class ConfigurationManager:
@@ -54,3 +54,19 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+    
+    
+    #Defining a function to to get data tranformation configuration:
+    def get_data_tranformation_config(self) -> DataTransformationConfig:
+
+        config = self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_tranformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            tokenizer_name=config.tokenizer_name
+        )
+
+        return data_tranformation_config

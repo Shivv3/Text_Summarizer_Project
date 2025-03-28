@@ -19,3 +19,11 @@ class DataValidationConfig:
     root_dir: Path
     STATUS_FILE: str
     ALL_REQUIRED_FILES: list
+
+#For Data transformation:
+class DataTransformationConfig:
+    def __init__(self,root_dir,data_path,tokenizer_name):
+
+        self.root_dir =  root_dir
+        self.data_path =  data_path
+        self.tokenizer_name = tokenizer_name

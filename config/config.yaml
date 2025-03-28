@@ -28,5 +28,21 @@ data_validation:
   #Defining the required files:
   ALL_REQUIRED_FILES: ["train","test","validation"]
 
+
+#Preparing the data_tranformation config: 
+data_transformation:
+  #Defining the root directory:
+  root_dir: artifacts/data_transformation
+  
+  #defining the data_path: the transformed data will be saved at this path:
+  data_path: artifacts/data_ingestion/samsum_dataset
+
+  #defining the name of the tokenizer:
+  tokenizer_name: google/pegasus-cnn_dailymail
+
+
+
+
+
  
 
