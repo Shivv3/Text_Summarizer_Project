@@ -41,6 +41,20 @@ data_transformation:
   tokenizer_name: google/pegasus-cnn_dailymail
 
 
+#Preparing the model Trainer config:
+model_trainer:
+  #Defining the root directory:
+  root_dir: artifacts/model_trainer
+  
+  #defining the path where the transformed data is stored:
+  data_path: artifacts/data_transformation/samsum_dataset
+
+  #defining the model checkpoint:
+  model_ckpt: google/pegasus-cnn_dailymail
+
+
+
+
 
 
 
