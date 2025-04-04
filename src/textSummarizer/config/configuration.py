@@ -3,7 +3,7 @@ from src.textSummarizer.constants import *
 
 # Import necessary file from commonly used functions:
 from src.textSummarizer.utils.common import read_yaml, create_directories
-from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig,DataTransformationConfig)
+from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig,DataTransformationConfig,ModelTrainerConfig)
 
 #Creating a class of configuration Manager:
 class ConfigurationManager:
@@ -70,3 +70,36 @@ class ConfigurationManager:
         )
 
         return data_tranformation_config
+    
+    #Defining the function for obtaining the model trainer config:
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+
+        #Obtaining the configuration:
+        config = self.config.model_trainer
+
+        #Obtaining the parameters:
+        params = self.params.TrainingArguments
+
+        #Creating a directory storing the configuration root directory:
+        create_directories([config.root_dir])
+
+        #Creating the model_trainer config:
+        model_trainer_config = ModelTrainerConfig(
+
+            #Setting up all the values:
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            model_ckpt=config.model_ckpt,
+            num_train_epochs=params.num_train_epochs,
+            warmup_steps=params.warmup_steps,
+            per_device_train_batch_size=params.per_device_train_batch_size,
+            weight_decay=params.weight_decay,
+            logging_steps=params.logging_steps,
+            evaluation_strategy=params.evaluation_strategy,
+            eval_steps= params.eval_steps,
+            save_steps=max(1,(params.eval_steps*((params.num_train_epochs//10) or 1))),
+            gradient_accumulation_steps=params.gradient_accumulation_steps,
+            per_device_eval_batch_size=params.per_device_eval_batch_size,
+        )
+
+        return model_trainer_config
