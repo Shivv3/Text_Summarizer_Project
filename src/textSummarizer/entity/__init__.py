@@ -45,3 +45,12 @@ class ModelTrainerConfig:
     eval_steps: int
     save_steps: int
     per_device_eval_batch_size: int
+
+#For Model Evaluation:
+class ModelEvaluationConfig:
+    def __init__(self, root_dir, data_path, model_path, tokenizer_path, metric_file_name):
+        self.root_dir = root_dir
+        self.data_path = data_path
+        self.model_path = model_path
+        self.tokenizer_path = tokenizer_path
+        self.metric_file_name = metric_file_name 

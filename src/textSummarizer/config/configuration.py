@@ -3,7 +3,7 @@ from src.textSummarizer.constants import *
 
 # Import necessary file from commonly used functions:
 from src.textSummarizer.utils.common import read_yaml, create_directories
-from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig,DataTransformationConfig,ModelTrainerConfig)
+from textSummarizer.entity import (DataIngestionConfig, DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig)
 
 #Creating a class of configuration Manager:
 class ConfigurationManager:
@@ -103,3 +103,24 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+    
+    #Defining a function to Obtain model evaluation:
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+
+        #Obtaining the configuration of the current model:
+        config = self.config.model_evaluation
+
+        #Creating directory:
+        create_directories([config.root_dir])
+
+        #Defining model evaluation configuration:
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir = config.root_dir,
+            data_path = config.data_path,
+            model_path = config.model_path,
+            tokenizer_path = config.tokenizer_path,
+            metric_file_name = config.metric_file_name
+        )
+
+        #Returning the Model Evaluation config:
+        return model_evaluation_config

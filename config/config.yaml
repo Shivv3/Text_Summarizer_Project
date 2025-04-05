@@ -53,6 +53,23 @@ model_trainer:
   model_ckpt: google/pegasus-cnn_dailymail
 
 
+#Preparing configuration for model evaluation:
+model_evaluation:
+  #Defining the root directory:
+  root_dir: artifacts/model_evaluation
+
+  #Defining the Path where the dataset is stored:
+  data_path: artifacts/data_transformation/samsum_dataset
+
+  #Defining the Path where the model is stored:
+  model_path: artifacts/model_trainer/pegasus-samsum-model
+
+  #Defining the path where the tokenizer is stored:
+  tokenizer_path: artifacts/model_trainer/tokenizer
+
+  #Defining the file where the metrics are stored:
+  metric_file_name: artifacts/model_evaluation/metrics.csv
+
 
 
 
